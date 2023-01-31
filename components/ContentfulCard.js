@@ -7,13 +7,17 @@ const ContentfulCard = ({ cardItems }) => {
 
     return (
         <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src="holder.js/100px180" />
+            <Card.Img 
+                variant="top"  
+                src={'https:' + image.fields.file.url}
+                width={300}
+                height={300}/>
             <Card.Body>
                 <Card.Title>{title}</Card.Title>
                 <Card.Text>
                     {subheading}
                 </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
+                <Button variant="primary" href={'https://' + url}>Go somewhere</Button>
             </Card.Body>
       </Card>
     )
