@@ -1,19 +1,15 @@
+import Navigation from "./Navigation"
 
-const Layout = ({ children }) => {
+const Layout = ({ children, navbar }) => {
     return (
         <div className="layout">
             <header>
-                <h1>
-                    <span>Just Add</span>
-                    <span>Marmite</span>
-                </h1>
-                <h2>Spread The Joy</h2>
-
+                {/* <Navigation navbar={navbar}/> */}
             </header>
 
-            <div className="page-content">
+            <main>
                 { children }
-            </div>
+            </main>
 
             <footer>
                 <p>Copyright 2021 Just Add Marmite</p>
