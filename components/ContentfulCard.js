@@ -1,9 +1,9 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
-const ContentfulCard = ({ cardItems }) => {
-    console.log('cardItems', cardItems)
-    const { title, subheading, url, image } = cardItems.fields
+const ContentfulCard = ({ card }) => {
+    console.log('card', card)
+    const { title, subheading, url, image } = card.fields
 
     return (
         <Card style={{ width: '18rem' }}>
@@ -17,7 +17,7 @@ const ContentfulCard = ({ cardItems }) => {
                 <Card.Text>
                     {subheading}
                 </Card.Text>
-                <Button variant="primary" href={'https://' + url}>Go somewhere</Button>
+                <Button variant="primary" href={'https://' + url}>Click me!</Button>
             </Card.Body>
       </Card>
     )

@@ -1,28 +1,22 @@
-import { createClient } from 'contentful'
 import ContentfulCard from '../components/ContentfulCard'
+import { getContentCard } from '../lib/api'
 
 export const getStaticProps = async() => {
 
-  const client = createClient({
-    space: process.env.CONTENTFUL_SPACE_ID,
-    accessToken: process.env.CONTENTFUL_ACCESS_KEY
-  })
-
-  const card = await client.getEntries({content_type: 'card'})
-
-  return {
-    props: {
-      cardItems: card.items[0]
+    return {
+        props: {
+            elements: {
+                card: await getContentCard()
+            }   
+        }
     }
-  }
-
 }
 
-export default function Recipes({ cardItems }) {
-  console.log('cardItems', cardItems)
-  return (
-    <div className="card-wrapper">
-        <ContentfulCard cardItems={cardItems}/>
-    </div>
-  )
+export default function Home ({ elements }) {
+
+    return (
+        <div className="card-wrapper">
+            <ContentfulCard card={elements.card}/>
+        </div>
+    )
 }
