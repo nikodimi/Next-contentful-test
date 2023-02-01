@@ -1,25 +1,29 @@
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
+import Image from "next/image"
+import Link from "next/link"
 
-const ContentfulCard = ({ card }) => {
-    console.log('card', card)
-    const { title, subheading, url, image } = card.fields
+const ContentfulCard = ({ cards }) => {
 
     return (
-        <Card style={{ width: '18rem' }}>
-            <Card.Img 
-                variant="top"  
-                src={'https:' + image.fields.file.url}
-                width={300}
-                height={300}/>
-            <Card.Body>
-                <Card.Title>{title}</Card.Title>
-                <Card.Text>
-                    {subheading}
-                </Card.Text>
-                <Button variant="primary" href={'https://' + url}>Click me!</Button>
-            </Card.Body>
-      </Card>
+        <>
+            {cards.map(card => (
+                <div className='bg-white/10 duration-500 group-hover:blur-sm hover:!blur-none group-hover:scale-[0.85] hover:!scale-100 p-8 rounded-xl'>
+                    <Image
+                        variant="top"  
+                        src={'https:' + card.fields.image.fields.file.url}
+                        height={400}
+                        width={400}
+                        className="mx-auto"
+                        alt="hej"
+                    />  
+                    <h4 className="uppertext font-bold text-xl pt-4">{card.fields.title}</h4>
+                    <p className="text-sm leading-7 my-3 font-light opacity-50">{card.fields.subheading}</p>
+                    <Link href={card.fields.url} className=" bg-slate-700 py-2.5 px-8 rounded-full">
+                        Click here
+                    </Link>
+                </div>
+            ))}
+        </>
+        
     )
 }
 

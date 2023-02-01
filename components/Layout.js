@@ -2,9 +2,9 @@ import Navigation from "./Navigation"
 
 const Layout = ({ children, navbar }) => {
     return (
-        <div className="layout">
+        <div className="layout min-h-screen flex flex-col justify-between">
             <header>
-                {/* <Navigation navbar={navbar}/> */}
+                <Navigation navbar={navbar} />  
             </header>
 
             <main>
