@@ -2,12 +2,12 @@ import Navigation from "./Navigation"
 
 const Layout = ({ children, navbar, searchbar }) => {
     return (
-        <div className="layout min-h-screen flex flex-col justify-between">
+        <div className="layout">
             <header>
                 <Navigation navbar={navbar} searchbar={searchbar}/>  
             </header>
 
-            <main>
+            <main className="min-h-screen flex flex-col">
                 { children }
             </main>
 

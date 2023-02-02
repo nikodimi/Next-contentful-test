@@ -4,3 +4,7 @@ nodeVersion: '16'
 cmsName: contentful
 modelsSource:
   type: contentful
+models:
+  page:
+    type: page
+    urlPath: '/{slug}'
